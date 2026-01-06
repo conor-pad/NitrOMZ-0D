@@ -181,7 +181,7 @@ ddt.o2   =  (-bio.OCrem .* RemOx - 1.5.*Ammox - 0.5 .* Nitrox);
 %     - 0.5 * Nitrox: O₂ cost of oxidizing NO₂ → NO₃ (~0.5 O₂ per NO₂).
 
 % no3 consumed now BOTH by 1 AND 2 stepper pathway
-ddt.no3  =  (Nitrox - bio.NCden1 .* RemDen1 - bio.NCden1 .* RemDenDirect);
+ddt.no3  =  (Nitrox - bio.NCden1 .* RemDen1 - bio.NCden1 .* RemDen2);
 ddt.doc  =  - RemOx - RemDen1 - RemDen2 - RemDen3;
 ddt.po4  =  bio.PCrem .* (RemOx + RemDen1 + RemDen2 + RemDen3);
 ddt.nh4  =  bio.NCrem .* (RemOx + RemDen1 + RemDen2 + RemDen3) - (Jnn2o_hx+Jno2_hx) - Anammox;
@@ -199,9 +199,9 @@ sms_n2o_ammox = 0.5 .* Jnn2o_hx;
 sms_n2o_nden  = 0.5 .* Jnn2o_nden;
 sms_n2o_den2  = 0.5 .* bio.NCden2 .* RemDen2;
 sms_n2o_den3  = - bio.NCden3 .* RemDen3;
-sms_n2o_direct = 0.5 .* bio.NCden1 .* RemDenDirect; % cuz 2NO3 -> 1 N2O
+sms_n2o_direct = 
 % N2O total SMS
-ddt.n2o = (sms_n2o_ammox + sms_n2o_nden + sms_n2o_den2 + sms_n2o_den3 + sms_n2o_direct);
+ddt.n2o = (sms_n2o_ammox + sms_n2o_nden + sms_n2o_den2 + sms_n2o_den3);
 
 
 %%

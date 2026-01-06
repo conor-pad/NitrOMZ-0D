@@ -12,7 +12,10 @@ switch ExpModule
         % Tracers:
         BioPar.o2_0 = 5.0;		% In mmol/m3
         BioPar.no3_0 = 32;		% In mmol/m3
-        BioPar.doc_0 = 15;		% In mmol/m3
+        
+        % add variable OM/doc supply?
+        BioPar.doc_0 = 30;		% In mmol/m3
+
         BioPar.po4_0 = 2;		% In mmol/m3
         BioPar.n2o_0 = 0;		% In mmol/m3
         BioPar.nh4_0 = 0;		% In mmol/m3
@@ -37,7 +40,7 @@ switch ExpModule
         %-------------------------------------------
         % Tracers:
     otherwise
-        error(['Error (experiment case not found)']);
+        error('Error (experiment case not found)');
 end
 
 
